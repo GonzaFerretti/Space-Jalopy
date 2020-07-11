@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a78b831ab8c4d34eb5891cf55604dca, type: 3}
-  m_Name: right
+  m_Name: left
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 9840d60f000af264f9449120b26e13cb, type: 3}
-  arrowKey: 275
+  icon: {fileID: 21300000, guid: 31bd489fef4bbc440ae6128eda4d660d, type: 3}
+  arrowKey: 276

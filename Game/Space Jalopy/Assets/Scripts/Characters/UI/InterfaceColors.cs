@@ -8,6 +8,8 @@ public class InterfaceColorSettings : ScriptableObject
     public Color brokenColorStart;
     public Color brokenColorEnd;
     public Color beingRepairedColor;
+    public Color baseArrowColor;
+    public Color firstArrowColor;
 
     public float LerpTime;
 
