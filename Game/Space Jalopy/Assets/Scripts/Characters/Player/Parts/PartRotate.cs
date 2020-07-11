@@ -10,7 +10,7 @@ public class PartRotate : ShipPart
     public bool goingRight = true;
     private void Update()
     {
-        if (partStatus == repairState.isBroken)
+        if (partStatus != repairState.isOk)
         {
             float currentTime = Time.time - startTime;
             float currentIndex = Mathf.InverseLerp(0,arcTime,currentTime);

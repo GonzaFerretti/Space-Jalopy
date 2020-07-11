@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     PlayerShip ship;
-    RepairMinigame minigame;
+    public RepairMinigame minigame;
     public bool isRepairing = false;
     public void Start()
     {
@@ -30,7 +30,11 @@ public class PlayerController : MonoBehaviour
     {
         if(minigame.currentDirections[0].Check())
         {
-
+            if (minigame.RemoveCurrentArrow())
+            {
+                isRepairing = false;
+                minigame.part.Fix();
+            }
         }
     }
 
@@ -39,6 +43,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetAxis("Horizontal") != 0)
         {
             Vector2 finalForce = Vector2.right * ship.baseMoveSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
+            ship.anim.SetBool("isSteering", true);
             ship.Move(finalForce);
         }
     }
@@ -47,6 +52,10 @@ public class PlayerController : MonoBehaviour
     {
         bool isMovingVertical = Input.GetAxis("Vertical") != 0;
         bool isMovingHorizontal = Input.GetAxis("Horizontal") != 0;
+        ship.anim.SetBool("isSteering", isMovingHorizontal);
+        ship.anim.SetBool("isSteeringRight", Input.GetAxis("Horizontal") > 0);
+        ship.anim.SetBool("isAccel", Input.GetAxis("Vertical") > 0);
+        ship.anim.SetBool("isDeaccel", Input.GetAxis("Vertical") < 0);
         if (isMovingHorizontal || isMovingVertical)
         {
             float lengthLimit = ship.baseMoveSpeed* Time.deltaTime;
@@ -79,9 +88,13 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKey((KeyCode)i))
             {
-                ship.ShipParts[i - 49].Fix();
-                isRepairing = true;
-                break;
+                if (ship.ShipParts[i - 49].partStatus == repairState.isBroken)
+                { 
+                    ship.ShipParts[i - 49].StartFix();
+                    minigame.Init(ship.ShipParts[i - 49], 3);
+                    isRepairing = true;
+                    break;
+                }
             }
         }
     }

@@ -7,13 +7,10 @@ public class MinigameArrow : MonoBehaviour
 {
     public MinigameDirection direction;
     public Image img;
-    private void Start()
-    {
-        img = GetComponent<Image>();
-    }
 
     public void Init(MinigameDirection _direction)
     {
+        img = GetComponent<Image>();
         direction = _direction;
         img.sprite = _direction.icon;
     }

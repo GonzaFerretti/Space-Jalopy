@@ -8,16 +8,27 @@ public class ShipPart : MonoBehaviour
     public string displayName;
     public RepairInterfaceElement uiElement;
     public PlayerShip ship;
-    public virtual void Fix()
+    public virtual void StartFix()
     {
         partStatus = repairState.isBeingRepaired;
-        uiElement.UpdateStatus(repairState.isBeingRepaired);
+        UpdateUI();
     }
 
     public virtual void Break()
     {
         partStatus = repairState.isBroken;
-        uiElement.UpdateStatus(repairState.isBroken);
+        UpdateUI();
+    }
+
+    public virtual void Fix()
+    {
+        partStatus = repairState.isOk;
+        UpdateUI();
+    }
+
+    public void UpdateUI()
+    {
+        uiElement.UpdateStatus(partStatus);
     }
 }
 
