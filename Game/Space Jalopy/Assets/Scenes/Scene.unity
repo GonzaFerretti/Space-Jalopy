@@ -1396,6 +1396,7 @@ MonoBehaviour:
     type: 3}
   lastProjectile: {fileID: 0}
   baseMoveSpeed: 5
+  sren: {fileID: 0}
   projectileTimer: 0
   projectileTime: 0.125
   canShoot: 1

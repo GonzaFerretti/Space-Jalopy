@@ -11,6 +11,7 @@ public class BaseShip : MonoBehaviour
     public GameObject projectile;
     public GameObject lastProjectile;
     public float baseMoveSpeed;
+    public SpriteRenderer sren;
 
     public float projectileTimer;
     public float projectileTime;
@@ -34,6 +35,7 @@ public class BaseShip : MonoBehaviour
     {
         currentHp = startHp;
         anim = GetComponent<Animator>();
+        sren = GetComponent<SpriteRenderer>();
     }
 
     void CheckProjectileTimer()
