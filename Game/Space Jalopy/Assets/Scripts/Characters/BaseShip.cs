@@ -6,6 +6,7 @@ public class BaseShip : MonoBehaviour
 {
     public int startHp;
     public int currentHp;
+    public Animator anim;
     public GameObject attackSpawnPoint;
     public GameObject projectile;
     public GameObject lastProjectile;
@@ -32,6 +33,7 @@ public class BaseShip : MonoBehaviour
     public virtual void Start()
     {
         currentHp = startHp;
+        anim = GetComponent<Animator>();
     }
 
     void CheckProjectileTimer()
