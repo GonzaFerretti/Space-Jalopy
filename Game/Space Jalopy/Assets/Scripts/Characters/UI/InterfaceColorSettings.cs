@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(menuName = "UI/InterfaceColors")]
+[CreateAssetMenu(menuName = "UI/ColorSettings")]
 public class InterfaceColorSettings : ScriptableObject
 {
     public Color OkColor;
