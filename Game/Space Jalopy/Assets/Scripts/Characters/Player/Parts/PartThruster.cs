@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartThruster : ShipPart
+public class PartThruster : PartMovement
 {
+
 }

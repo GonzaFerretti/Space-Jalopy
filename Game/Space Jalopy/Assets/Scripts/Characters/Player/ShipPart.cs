@@ -6,13 +6,14 @@ public class ShipPart : MonoBehaviour
 {
     public bool isBroken = false;
     public string displayName;
-    public void Fix()
-    {
-        isBroken = true;
-    }
-
-    public void Break()
+    public PlayerShip ship;
+    public virtual void Fix()
     {
         isBroken = false;
+    }
+
+    public virtual void Break()
+    {
+        isBroken = true;
     }
 }

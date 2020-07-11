@@ -13,10 +13,9 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
-        CheckSteer();
-        CheckThruster();
+        CheckMovement();
         if (!isRepairing)
-        { 
+        {
             CheckShoot();
             CheckRepair();
         }
@@ -24,10 +23,23 @@ public class PlayerController : MonoBehaviour
 
     public void CheckSteer()
     {
-        if (Input.GetAxis("Horizontal")!= 0)
+        if (Input.GetAxis("Horizontal") != 0)
         {
             Vector2 finalForce = Vector2.right * ship.baseMoveSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
-            ship.transform.position += new Vector3(finalForce.x, finalForce.y);
+            ship.Move(finalForce);
+        }
+    }
+
+    public void CheckMovement()
+    {
+        bool isMovingVertical = Input.GetAxis("Vertical") != 0;
+        bool isMovingHorizontal = Input.GetAxis("Horizontal") != 0;
+        if (isMovingHorizontal || isMovingVertical)
+        {
+            float lengthLimit = ship.baseMoveSpeed* Time.deltaTime;
+            Vector2 finalForce = Vector2.right * ship.baseMoveSpeed * Time.deltaTime * Input.GetAxis("Horizontal") + Vector2.up * ship.baseMoveSpeed * Time.deltaTime * Input.GetAxis("Vertical");
+            finalForce = Vector2.ClampMagnitude(finalForce, lengthLimit);
+            ship.Move(finalForce);
         }
     }
 
@@ -36,7 +48,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetAxis("Vertical") != 0)
         {
             Vector2 finalForce = Vector2.up * ship.baseMoveSpeed * Time.deltaTime * Input.GetAxis("Vertical");
-            ship.transform.position += new Vector3(finalForce.x,finalForce.y);
+            ship.Move(finalForce);
         }
     }
 
@@ -55,7 +67,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey((KeyCode)i))
             {
                 ship.ShipParts[i - 49].Fix();
-                isRepairing = true;
+                //isRepairing = true;
                 break;
             }
         }

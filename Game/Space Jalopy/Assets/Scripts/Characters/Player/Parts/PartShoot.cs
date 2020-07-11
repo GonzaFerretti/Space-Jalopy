@@ -4,4 +4,5 @@ using UnityEngine;
 
 public class PartShoot : ShipPart
 {
+    public float angle;
 }

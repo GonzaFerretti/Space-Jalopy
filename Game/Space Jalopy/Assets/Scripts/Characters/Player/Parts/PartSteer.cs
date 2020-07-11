@@ -2,6 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartSteer : ShipPart
+public class PartSteer : PartMovement
 {
 }
