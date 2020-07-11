@@ -490,9 +490,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3dcdf12d65cdd4b926046c43e9946f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBroken: 0
+  isBroken: 1
   displayName: 
   ship: {fileID: 1064864875}
+  time: 0
+  timer: 0
+  minForce: 5000
+  maxForce: 5200
+  minTime: 1
+  maxTime: 5
+  direction: {x: 0, y: 1}
 --- !u!114 &953168829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,9 +512,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a2bad6bfedfc1146b8c137c4be033b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBroken: 0
+  isBroken: 1
   displayName: 
   ship: {fileID: 1064864875}
+  time: 0
+  timer: 0
+  minForce: 4000
+  maxForce: 4200
+  minTime: 3
+  maxTime: 7
+  direction: {x: 1, y: 0}
 --- !u!114 &953168830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,6 +546,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1064864877}
+  - component: {fileID: 1064864876}
   - component: {fileID: 1064864875}
   - component: {fileID: 1064864874}
   - component: {fileID: 1064864878}
@@ -579,11 +594,33 @@ MonoBehaviour:
   canShoot: 1
   ShipParts: []
   shield: {fileID: 953168830}
+  rb: {fileID: 0}
   steer: {fileID: 953168829}
   thruster: {fileID: 953168828}
   shoot: {fileID: 953168827}
   monoprop: {fileID: 953168825}
   projectileSpeed: 5
+--- !u!50 &1064864876
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064864873}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!4 &1064864877
 Transform:
   m_ObjectHideFlags: 0
