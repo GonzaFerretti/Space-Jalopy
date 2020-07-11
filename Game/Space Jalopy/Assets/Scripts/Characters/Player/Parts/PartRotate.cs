@@ -18,10 +18,14 @@ public class PartRotate : ShipPart
             if (goingRight)
             {
                 currentAngle = Mathf.Lerp(-angle / 2, angle / 2, currentIndex);
+                ship.anim.SetBool("isRotating",true);
+                ship.sren.flipX = true;
             }
             else
             {
                 currentAngle = Mathf.Lerp(angle / 2, -angle / 2, currentIndex);
+                ship.anim.SetBool("isRotating", true);
+                ship.sren.flipX = false;
             }
             if (currentIndex == 1)
             {

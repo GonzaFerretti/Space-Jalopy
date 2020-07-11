@@ -53,11 +53,15 @@ public class PlayerController : MonoBehaviour
         bool isMovingVertical = Input.GetAxis("Vertical") != 0;
         bool isMovingHorizontal = Input.GetAxis("Horizontal") != 0;
         ship.anim.SetBool("isSteering", isMovingHorizontal);
-        ship.anim.SetBool("isSteeringRight", Input.GetAxis("Horizontal") > 0);
+        //ship.anim.SetBool("isSteeringRight", Input.GetAxis("Horizontal") > 0);
         ship.anim.SetBool("isAccel", Input.GetAxis("Vertical") > 0);
         ship.anim.SetBool("isDeaccel", Input.GetAxis("Vertical") < 0);
         if (isMovingHorizontal || isMovingVertical)
         {
+            if (!ship.anim.GetBool("isRotating"))
+            { 
+            ship.sren.flipX = !(Input.GetAxis("Horizontal") > 0);
+            }
             float lengthLimit = ship.baseMoveSpeed* Time.deltaTime;
             Vector2 finalForce = Vector2.right * ship.baseMoveSpeed * Time.deltaTime * Input.GetAxis("Horizontal") + Vector2.up * ship.baseMoveSpeed * Time.deltaTime * Input.GetAxis("Vertical");
             finalForce = Vector2.ClampMagnitude(finalForce, lengthLimit);
