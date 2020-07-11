@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     PlayerShip ship;
+    RepairMinigame minigame;
     public bool isRepairing = false;
     public void Start()
     {
@@ -18,6 +19,18 @@ public class PlayerController : MonoBehaviour
         {
             CheckShoot();
             CheckRepair();
+        }
+        else
+        {
+            CheckMinigameArrows();
+        }
+    }
+
+    public void CheckMinigameArrows()
+    {
+        if(minigame.currentDirections[0].Check())
+        {
+
         }
     }
 
@@ -67,7 +80,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey((KeyCode)i))
             {
                 ship.ShipParts[i - 49].Fix();
-                //isRepairing = true;
+                isRepairing = true;
                 break;
             }
         }

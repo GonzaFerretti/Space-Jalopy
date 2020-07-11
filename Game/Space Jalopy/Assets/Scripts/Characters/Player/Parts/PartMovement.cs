@@ -14,7 +14,7 @@ public class PartMovement : ShipPart
 
     public void Update()
     {
-        if (isBroken)
+        if (partStatus == repairState.isBroken)
         {
             if (timer < time)
             {

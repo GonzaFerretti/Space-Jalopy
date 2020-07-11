@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class ShipPart : MonoBehaviour
 {
-    public bool isBroken = false;
+    public repairState partStatus = repairState.isOk;
     public string displayName;
+    public RepairInterfaceElement uiElement;
     public PlayerShip ship;
     public virtual void Fix()
     {
-        isBroken = false;
+        partStatus = repairState.isBeingRepaired;
+        uiElement.UpdateStatus(repairState.isBeingRepaired);
     }
 
     public virtual void Break()
     {
-        isBroken = true;
+        partStatus = repairState.isBroken;
+        uiElement.UpdateStatus(repairState.isBroken);
     }
+}
+
+public enum repairState
+{
+    isBroken = 0,
+    isBeingRepaired = 1,
+    isOk = 2,
 }

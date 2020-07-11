@@ -25,7 +25,7 @@ public class PlayerShip : BaseShip
         if (canShoot)
         {
             base.Attack();
-            if (!shoot.isBroken)
+            if ((shoot.partStatus == repairState.isOk))
             {
                 lastProjectile.transform.up = transform.up;
             }
