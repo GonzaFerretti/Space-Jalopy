@@ -10,6 +10,7 @@ public class PlayerShip : BaseShip
     public PartThruster thruster;
     public PartShoot shoot;
     public PartRotate monoprop;
+
     public float projectileSpeed;
 
     public override void Start()
@@ -19,7 +20,23 @@ public class PlayerShip : BaseShip
     }
     public override void Attack()
     {
-        base.Attack();
-        lastProjectile.transform.up = transform.up;
+        if (canShoot)
+        {
+            base.Attack();
+            if (!shoot.isBroken)
+            {
+                lastProjectile.transform.up = transform.up;
+            }
+            else
+            {
+                float angle = Random.Range(-shoot.angle, shoot.angle);
+                lastProjectile.transform.up = Utilities.Rotate(transform.up, angle);
+            }
+        }
+    }
+
+    public override void Update()
+    {
+        base.Update();
     }
 }

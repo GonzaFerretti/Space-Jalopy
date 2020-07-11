@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey((KeyCode)i))
             {
                 ship.ShipParts[i - 49].Fix();
-                isRepairing = true;
+                //isRepairing = true;
                 break;
             }
         }
