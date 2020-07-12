@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27ebf5cd6ae95344b60598b2cf12d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHp: 10
+  startHp: 1000
   currentHp: 0
   anim: {fileID: 0}
   attackSpawnPoint: {fileID: 2032498096}
@@ -1408,6 +1408,7 @@ MonoBehaviour:
   monoprop: {fileID: 253819518}
   hpbar: {fileID: 0}
   controller: {fileID: 0}
+  originalSpeed: 0
 --- !u!50 &884301041
 Rigidbody2D:
   serializedVersion: 4
