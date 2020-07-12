@@ -14,9 +14,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (remainingEnemies.Count == 0)
         {
-            currentWaveIndex++;
-            
-            if(currentWaveIndex < enemyWaves.Length)
+            if (currentWaveIndex < enemyWaves.Length)
             {
                 SpawnWave();
             }
@@ -24,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 GetComponent<GameStateController>().PlayerWon();
             }
+            currentWaveIndex++;
         }
     }
 
@@ -38,6 +37,10 @@ public class EnemySpawner : MonoBehaviour
             }
         }
         catch { }
+        if (enemyWaves[currentWaveIndex].shouldHeal)
+        {
+            FindObjectOfType<PlayerShip>().currentHp = FindObjectOfType<PlayerShip>().startHp;
+        }
         for (int i = 0; i < currentSpawnWaveLength; i++)
         {
             GameObject go = Instantiate(enemyWaves[currentWaveIndex].shipsToSpawnInOrder[i], null);

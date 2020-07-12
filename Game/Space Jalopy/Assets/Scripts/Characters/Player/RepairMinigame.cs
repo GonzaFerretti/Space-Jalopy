@@ -8,12 +8,14 @@ public class RepairMinigame : MonoBehaviour
     public ShipPart part;
     public InterfaceColorSettings colors;
     public MinigameDirection[] possibleDirections;
+    public BoundaryInfo info;
     public List<MinigameArrow> currentDirections = new List<MinigameArrow>();
     public GameObject arrowContainer;
     public float outerMargin;
     public float innerMargin;
     public int arrowsLength;
     public float playerHeightMargin;
+    public Vector2 lastSize;
     public void Init(ShipPart _part, int _length)
     {
         part = _part;
@@ -25,7 +27,15 @@ public class RepairMinigame : MonoBehaviour
 
     public void Update()
     {
-        GetComponent<Transform>().position = part.transform.parent.position - Vector3.up * playerHeightMargin;
+
+        GetComponent<Transform>().position = ClampedPosition(part.transform.parent.position - Vector3.up * playerHeightMargin);
+    }
+
+    Vector3 ClampedPosition(Vector3 possiblePos)
+    {
+        float x = Mathf.Clamp(possiblePos.x, info.min.x + lastSize.x, info.max.x + lastSize.x);
+        float y = Mathf.Clamp(possiblePos.y, info.min.y + lastSize.y, info.max.y + lastSize.y);
+        return new Vector3(x, y, 0);
     }
 
     void GenerateDirections()
@@ -51,6 +61,7 @@ public class RepairMinigame : MonoBehaviour
         }
 
         GetComponent<RectTransform>().sizeDelta = new Vector2(2 * outerMargin + arrowsLength * (innerMargin + containerSize), 2 * outerMargin + containerSize);
+        lastSize = new Vector2(2 * outerMargin + arrowsLength * (innerMargin + containerSize), 2 * outerMargin + containerSize); 
     }
 
     public bool RemoveCurrentArrow()
@@ -80,6 +91,10 @@ public class RepairMinigame : MonoBehaviour
         for (int i = 0; i < currentDirections.Count; i++)
         {
             GameObject go = currentDirections[0].gameObject;
+            if (part.partStatus == repairState.isBeingRepaired)
+            {
+                part.Break();
+            }
             currentDirections.Remove(currentDirections[0]);
         }
         gameObject.SetActive(false);

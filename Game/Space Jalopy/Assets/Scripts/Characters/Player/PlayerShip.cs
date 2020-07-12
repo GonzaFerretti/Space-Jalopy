@@ -105,7 +105,6 @@ public class PlayerShip : BaseShip
 
     public void Switch(PartBreaker partBreaker)
     {
-        controller.minigame.Reset();
         List<int> indices = new List<int>();
         for (int i = 0; i < ShipParts.Length; i++)
         {
@@ -137,6 +136,8 @@ public class PlayerShip : BaseShip
         {
             part2.Fix();
         }
+
+        controller.minigame.Reset();
     }
 
     public bool PartsFullyOk()

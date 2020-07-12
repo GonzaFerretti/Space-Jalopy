@@ -21,6 +21,7 @@ public class GameStateController : MonoBehaviour
         if(_player == null)
         {
             _gameOverText.SetActive(true);
+            _player.GetComponent<PlayerShip>().FixAll();
             _waitingForRestart = true;
 
             foreach (BaseProjectile obj in FindObjectsOfType<BaseProjectile>())
@@ -55,7 +56,7 @@ public class GameStateController : MonoBehaviour
 
     public void PlayerWon()
     {
-        if (_spawner.currentWaveIndex >= _spawner.enemyWaves.Length)
+        if (_spawner.currentWaveIndex > _spawner.enemyWaves.Length)
         {
             _playerWon = true;
             _player.GetComponent<PlayerShip>().FixAll();
