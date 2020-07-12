@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void Update()
     {
-        if (remainingEnemies.Count == 0)
+        if (remainingEnemies.Count == 0 && currentWaveIndex <= enemyWaves.Length)
         {
             SpawnWave();
             currentWaveIndex++;
