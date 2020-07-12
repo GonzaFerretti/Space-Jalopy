@@ -40,10 +40,10 @@ public class PlayerShip : BaseShip
         if (canShoot)
         {
             base.Attack();
+            soundM.PlaySFX(SFX.laser);
             if ((shoot.partStatus == repairState.isOk))
             {
                 lastProjectile.transform.up = transform.up;
-               // FindObjectOfType<soundManager>().Play(SFX.laser);
             }
             else
             {
@@ -56,6 +56,7 @@ public class PlayerShip : BaseShip
     public override void ApplyDamage(int damage)
     {
         base.ApplyDamage(damage);
+        FindObjectOfType<CameraSreenShake>().ShakeCamera();
         hpbar.ModifyHP(currentHp * 1f / startHp * 1f);
     }
 

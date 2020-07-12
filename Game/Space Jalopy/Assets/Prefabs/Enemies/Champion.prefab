@@ -123,10 +123,13 @@ MonoBehaviour:
   lastProjectile: {fileID: 0}
   baseMoveSpeed: 3
   sren: {fileID: 0}
+  explosion: {fileID: 2372980687904938137, guid: c4428e6351311fe468f37aaa23d7ad49,
+    type: 3}
   basicProjectileSpeed: 6
   projectileTimer: 0
   projectileTime: 5
   canShoot: 0
+  soundM: {fileID: 0}
   hasBeenStopped: 0
   isStationary: 0
   isGoingRight: 1

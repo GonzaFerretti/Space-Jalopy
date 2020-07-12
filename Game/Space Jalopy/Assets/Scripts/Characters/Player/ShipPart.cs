@@ -17,6 +17,7 @@ public class ShipPart : MonoBehaviour
     public virtual void Break()
     {
         partStatus = repairState.isBroken;
+        ship.soundM.PlaySFX(SFX.part_broken);
         UpdateUI();
     }
 
