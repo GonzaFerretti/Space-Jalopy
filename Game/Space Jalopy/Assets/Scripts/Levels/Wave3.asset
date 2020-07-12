@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wave3
   m_EditorClassIdentifier: 
   shipsToSpawnInOrder:
-  - {fileID: 8531887140840057068, guid: 245676394d83af14fbe0456edf0e3d0a, type: 3}
+  - {fileID: 6702670837583672411, guid: 81eeb2722fec193428d79784048c8c26, type: 3}
   positions:
   - {x: 0, y: 4}

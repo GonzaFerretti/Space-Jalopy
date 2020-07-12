@@ -43,6 +43,7 @@ public class PlayerShip : BaseShip
             if ((shoot.partStatus == repairState.isOk))
             {
                 lastProjectile.transform.up = transform.up;
+               // FindObjectOfType<soundManager>().Play(SFX.laser);
             }
             else
             {
