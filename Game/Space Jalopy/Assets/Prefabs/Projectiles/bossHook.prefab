@@ -119,4 +119,9 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   ropePartLength: 1
   startOffset: 0.6
+  hookOffset: {x: 0, y: 0}
+  ship: {fileID: 0}
   rope: []
+  isHooked: 0
+  speedPenalty: 0.15
+  minSpeedPenalty: 0.6
