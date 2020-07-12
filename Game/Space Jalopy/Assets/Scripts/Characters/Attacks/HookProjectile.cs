@@ -9,18 +9,23 @@ public class HookProjectile : BaseProjectile
     public Vector3 startPosition;
     public float ropePartLength;
     public float startOffset;
+    public Vector2 hookOffset;
     public PlayerShip ship;
     public List<GameObject> rope;
     public bool isHooked = false;
+    public float speedPenalty;
+    public BaseShip _firingShip;
+    public float minSpeedPenalty;
 
     public override void Init(BaseShip firingShip)
     {
         base.Init(firingShip);
+        _firingShip = firingShip;
         Debug.Log(transform.up);
-        startPosition = transform.position;
+        startPosition = new Vector3(transform.position.x,transform.position.y,0);
         ropePartLength = 1;
         ship = FindObjectOfType<PlayerShip>();
-        transform.up = (ship.transform.position - transform.position).normalized;
+        transform.up = (ship.transform.position - startPosition).normalized;
     }
 
     public override void Move()
@@ -28,22 +33,19 @@ public class HookProjectile : BaseProjectile
         if (!isHooked)
         { 
         base.Move();
-        CheckIfShouldCreateMoreRopes();
+        CheckIfShouldCreateMoreRopes(startPosition);
         }
         else
         {
-            transform.up = (ship.transform.position - transform.position).normalized;
+            CheckIfShouldCreateMoreRopes(_firingShip.attackSpawnPoint.transform.position);
+            transform.position = ship.transform.position - (Vector3)hookOffset;
+            transform.up = (ship.transform.position - new Vector3(_firingShip.attackSpawnPoint.transform.position.x, _firingShip.attackSpawnPoint.transform.position.y,0)).normalized;
         }
     }
 
-    public Vector3 upWithoutZ()
+    public void CheckIfShouldCreateMoreRopes(Vector3 referencePoint)
     {
-        return Vector3.zero;
-    }
-
-    public void CheckIfShouldCreateMoreRopes()
-    {
-        float distanceTravelled = Vector3.Distance(transform.position, startPosition);
+        float distanceTravelled = Vector3.Distance(transform.position, referencePoint);
         if (distanceTravelled/ropePartLength > rope.Count)
         {
             GameObject newRopePart = Instantiate(ropeWiggly,transform);
@@ -62,6 +64,8 @@ public class HookProjectile : BaseProjectile
                 part.GetComponent<SpriteRenderer>().sprite = ropeTenseSprite;
             }
             isHooked = true;
+            hookOffset = ship.transform.position - transform.position;
+            ship.baseMoveSpeed = Mathf.Clamp(ship.baseMoveSpeed - speedPenalty, minSpeedPenalty * ship.originalSpeed, float.MaxValue); 
         }
     }
 }

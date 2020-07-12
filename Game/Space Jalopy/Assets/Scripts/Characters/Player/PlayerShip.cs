@@ -12,6 +12,7 @@ public class PlayerShip : BaseShip
     public PartRotate monoprop;
     public HpBar hpbar;
     public PlayerController controller;
+    public float originalSpeed;
 
     public void SetMovementDisable(float time)
     {
@@ -32,6 +33,7 @@ public class PlayerShip : BaseShip
         rb = GetComponent<Rigidbody2D>();
         hpbar = FindObjectOfType<HpBar>();
         controller = GetComponent<PlayerController>();
+        originalSpeed = baseMoveSpeed;
     }
     public override void Attack()
     {
