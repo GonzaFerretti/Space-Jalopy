@@ -1038,8 +1038,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1519877574}
   - {fileID: 1568941490}
+  - {fileID: 1519877574}
   - {fileID: 1522404431}
   - {fileID: 351599553}
   m_Father: {fileID: 0}
@@ -1580,7 +1580,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 798986766}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1926,7 +1926,7 @@ RectTransform:
   - {fileID: 99611967}
   - {fileID: 1072805866}
   m_Father: {fileID: 798986766}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -2278,5 +2278,11 @@ PrefabInstance:
       propertyPath: uiElement
       value: 
       objectReference: {fileID: 1631212526}
+    - target: {fileID: 2031926826907214292, guid: cc5b6fb577e36a248a890ea2514e777c,
+        type: 3}
+      propertyPath: boundaryInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e6ad07b05c5b26489a839a9ec70752f,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc5b6fb577e36a248a890ea2514e777c, type: 3}

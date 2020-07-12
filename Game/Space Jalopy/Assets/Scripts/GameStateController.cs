@@ -21,7 +21,6 @@ public class GameStateController : MonoBehaviour
         if(_player == null)
         {
             _gameOverText.SetActive(true);
-            _player.GetComponent<PlayerShip>().FixAll();
             _waitingForRestart = true;
 
             foreach (BaseProjectile obj in FindObjectsOfType<BaseProjectile>())
