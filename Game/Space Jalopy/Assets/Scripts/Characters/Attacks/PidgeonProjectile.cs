@@ -14,7 +14,7 @@ public class PidgeonProjectile : BaseProjectile
     {
         if (collision.tag == targetTag)
         {
-            collision.GetComponent<PlayerShip>().DisablePartsAttack();
+            collision.GetComponent<PlayerShip>().DisablePartsAttack(false);
         }
         base.OnTriggerEnter2D(collision);
     }

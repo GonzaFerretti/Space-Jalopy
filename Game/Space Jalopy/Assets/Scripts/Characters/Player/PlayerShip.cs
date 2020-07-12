@@ -72,7 +72,7 @@ public class PlayerShip : BaseShip
         rb.AddForce(force);
     }
 
-    public void DisablePartsAttack()
+    public void DisablePartsAttack(bool isChampionAttack)
     {
         PartBreaker partBreaker = FindObjectOfType<PartBreaker>();
         if (PartsFullyOk())
@@ -82,7 +82,47 @@ public class PlayerShip : BaseShip
         }
         else
         {
-            partBreaker.DestroyRandomPart();
+            if (isChampionAttack)
+            {
+                Switch(partBreaker);
+            }
+            else { partBreaker.DestroyRandomPart();}
+        }
+    }
+
+    public void Switch(PartBreaker partBreaker)
+    {
+        controller.minigame.Reset();
+        List<int> indices = new List<int>();
+        for (int i = 0; i < ShipParts.Length; i++)
+        {
+            if ((ShipParts[i].partStatus != repairState.isOk))
+            {
+                indices.Add(i);
+            }
+        }
+        int possibleSwitcheroosAmount = indices.Count;
+        int firstIndex = Random.Range(0, indices.Count - 1);
+        int secondIndex = -1;
+        ShipPart part1 = ShipParts[indices[firstIndex]];
+        ShipPart part2 = ShipParts[0];
+        if (possibleSwitcheroosAmount > 1)
+        {
+            while (secondIndex != -1 && secondIndex != firstIndex)
+            {
+                secondIndex = Random.Range(0, indices.Count - 1);
+            }
+            if (secondIndex != -1)
+            { 
+            part2 = ShipParts[indices[secondIndex]];
+            }
+        }
+        partBreaker.DestroyRandomPart();
+        partBreaker.DestroyRandomPart();
+        part1.Fix();
+        if (secondIndex != -1)
+        {
+            part2.Fix();
         }
     }
 

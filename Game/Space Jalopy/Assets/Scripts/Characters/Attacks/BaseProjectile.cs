@@ -14,7 +14,7 @@ public class BaseProjectile : MonoBehaviour
         speed = firingShip.basicProjectileSpeed;
     }
 
-    public void Move()
+    public virtual void Move()
     {
         transform.position += transform.up * speed * Time.deltaTime;
     }

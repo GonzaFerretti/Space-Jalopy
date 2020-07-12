@@ -7,6 +7,8 @@ public class PidgeonShip : ClassicEnemyShip
     public float chargingTime;
     public float minShootTime;
     public float maxShootTime;
+    public float usualBaseSpeed;
+    public bool isStopped = false;
 
     public override void Start()
     {
@@ -17,8 +19,10 @@ public class PidgeonShip : ClassicEnemyShip
     public override void CheckProjectileTimer()
     {
         base.CheckProjectileTimer();
-        if (projectileTimer > projectileTime - chargingTime)
+        if (projectileTimer > projectileTime - chargingTime && !isStopped)
         {
+            anim.SetBool("open", true);
+            isStopped = true;
             baseMoveSpeed = 0;
         }
     }
