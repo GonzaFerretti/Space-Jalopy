@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     PlayerShip ship;
     public RepairMinigame minigame;
     public bool isRepairing = false;
+
+    public bool hasDisabledMovement = false;
     public void Start()
     {
         ship = GetComponent<PlayerShip>();
@@ -14,7 +16,10 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
-        CheckMovement();
+        if (!hasDisabledMovement)
+        {
+            CheckMovement();
+        }
         if (!isRepairing)
         {
             CheckShoot();

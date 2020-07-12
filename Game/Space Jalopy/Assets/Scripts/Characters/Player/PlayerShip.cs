@@ -11,7 +11,19 @@ public class PlayerShip : BaseShip
     public PartShoot shoot;
     public PartRotate monoprop;
     public HpBar hpbar;
+    public PlayerController controller;
 
+    public void SetMovementDisable(float time)
+    {
+        controller.hasDisabledMovement = true;
+        StartCoroutine(waitToReEnableMovement(time));
+    }
+
+    IEnumerator waitToReEnableMovement(float timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        controller.hasDisabledMovement = false;
+    }
 
     public override void Start()
     {
@@ -19,6 +31,7 @@ public class PlayerShip : BaseShip
         ShipParts = GetComponentsInChildren<ShipPart>();
         rb = GetComponent<Rigidbody2D>();
         hpbar = FindObjectOfType<HpBar>();
+        controller = GetComponent<PlayerController>();
     }
     public override void Attack()
     {

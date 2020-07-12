@@ -933,6 +933,7 @@ MonoBehaviour:
   minTime: 1
   maxTime: 5
   direction: {x: 0, y: 1}
+  disableTime: 0.5
 --- !u!114 &953168829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -956,6 +957,7 @@ MonoBehaviour:
   minTime: 3
   maxTime: 7
   direction: {x: 1, y: 0}
+  disableTime: 0.5
 --- !u!1 &1064864873
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,6 +995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigame: {fileID: 1519877577}
   isRepairing: 0
+  hasDisabledMovement: 0
 --- !u!114 &1064864875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1025,6 +1028,7 @@ MonoBehaviour:
   shoot: {fileID: 953168827}
   monoprop: {fileID: 953168825}
   hpbar: {fileID: 0}
+  controller: {fileID: 0}
 --- !u!50 &1064864876
 Rigidbody2D:
   serializedVersion: 4
