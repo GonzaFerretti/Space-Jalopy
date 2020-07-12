@@ -24,7 +24,6 @@ public class HookProjectile : BaseProjectile
         _firingShip = firingShip;
         Debug.Log(transform.up);
         startPosition = new Vector3(transform.position.x,transform.position.y,0);
-        ropePartLength = 1;
         ship = FindObjectOfType<PlayerShip>();
         transform.up = (ship.transform.position - startPosition).normalized;
     }
@@ -34,7 +33,7 @@ public class HookProjectile : BaseProjectile
         if (!isHooked)
         { 
             base.Move();
-            CheckIfShouldCreateMoreRopes(startPosition);
+            CheckIfShouldCreateMoreRopes(startPosition, false);
         }
         else
         {
@@ -44,20 +43,27 @@ public class HookProjectile : BaseProjectile
                 ship.baseMoveSpeed = Mathf.Clamp(ship.baseMoveSpeed + speedPenalty, minSpeedPenalty * ship.originalSpeed, ship.originalSpeed);
                 Destroy(gameObject);
             }
-            CheckIfShouldCreateMoreRopes(_firingShip.attackSpawnPoint.transform.position);
+            CheckIfShouldCreateMoreRopes(_firingShip.attackSpawnPoint.transform.position,true);
             transform.position = ship.transform.position - (Vector3)hookOffset;
             transform.up = (ship.transform.position - new Vector3(_firingShip.attackSpawnPoint.transform.position.x, _firingShip.attackSpawnPoint.transform.position.y, 0)).normalized;
         }
     }
 
-    public void CheckIfShouldCreateMoreRopes(Vector3 referencePoint)
+    public void CheckIfShouldCreateMoreRopes(Vector3 referencePoint, bool shouldAdjust)
     {
         float distanceTravelled = Vector3.Distance(transform.position, referencePoint);
         if (distanceTravelled/ropePartLength > rope.Count)
         {
-            GameObject newRopePart = Instantiate(ropeWiggly,transform);
+            GameObject prefab = (shouldAdjust) ? ropeTense : ropeWiggly;
+            GameObject newRopePart = Instantiate(prefab,transform);
             newRopePart.transform.position = transform.position - transform.up * ropePartLength * rope.Count - transform.up * startOffset;
             rope.Add(newRopePart);
+        }
+        else if (distanceTravelled / ropePartLength < rope.Count && shouldAdjust)
+        {
+            GameObject lastRope = rope[rope.Count - 1];
+            rope.Remove(rope[rope.Count - 1]);
+            Destroy(lastRope.gameObject);
         }
     }
 

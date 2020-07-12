@@ -30,7 +30,10 @@ public class ClassicEnemyShip : BaseShip
         if (canShoot)
         {
             Attack();
+            if (!(this is BossShip))
+            { 
             lastProjectile.transform.up = transform.up;
+            }
         }
     }
 

@@ -117,13 +117,13 @@ MonoBehaviour:
   ropeTense: {fileID: 6187289790353550875, guid: 0d95bee3d7c11884faf1c3cfefbc8f31,
     type: 3}
   startPosition: {x: 0, y: 0, z: 0}
-  ropePartLength: 1
-  startOffset: 0.6
+  ropePartLength: 0.4
+  startOffset: 0.3
   hookOffset: {x: 0, y: 0}
   ship: {fileID: 0}
   rope: []
   isHooked: 0
-  speedPenalty: 0.15
+  speedPenalty: 1
   _firingShip: {fileID: 0}
   minSpeedPenalty: 0.6
   TimeRemaining: 10

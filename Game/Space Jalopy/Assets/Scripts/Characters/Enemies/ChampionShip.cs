@@ -27,6 +27,9 @@ public class ChampionShip : PidgeonShip
     public override void Attack()
     {
         base.Attack();
-        lastProjectile.GetComponent<ChampionProjectile>().ship = player;
+        if (!(this is BossShip))
+        {
+            lastProjectile.GetComponent<ChampionProjectile>().ship = player;
+        }
     }
 }
