@@ -12,12 +12,14 @@ public class BaseShip : MonoBehaviour
     public GameObject lastProjectile;
     public float baseMoveSpeed;
     public SpriteRenderer sren;
+    public GameObject explosion;
 
     public float basicProjectileSpeed;
 
     public float projectileTimer;
     public float projectileTime;
     public bool canShoot = true;
+    public soundManager soundM;
 
     public virtual void ApplyDamage(int damage)
     {
@@ -28,7 +30,13 @@ public class BaseShip : MonoBehaviour
             {
                 FindObjectOfType<EnemySpawner>().UpdateDeadEnemy(gameObject);
             }
+            soundM.PlaySFX(SFX.damage_taken);
+            Instantiate(explosion, null).transform.position = transform.position;
             Destroy(gameObject);
+        }
+        else
+        {
+            soundM.PlaySFX(SFX.damage_taken_2);
         }
     }
 
@@ -47,6 +55,7 @@ public class BaseShip : MonoBehaviour
         currentHp = startHp;
         anim = GetComponent<Animator>();
         sren = GetComponent<SpriteRenderer>();
+        soundM = FindObjectOfType<soundManager>();
     }
 
     public virtual void CheckProjectileTimer()

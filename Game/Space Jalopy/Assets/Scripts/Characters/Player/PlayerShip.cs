@@ -12,6 +12,7 @@ public class PlayerShip : BaseShip
     public PartRotate monoprop;
     public HpBar hpbar;
     public PlayerController controller;
+    public float originalSpeed;
 
     public void SetMovementDisable(float time)
     {
@@ -32,12 +33,14 @@ public class PlayerShip : BaseShip
         rb = GetComponent<Rigidbody2D>();
         hpbar = FindObjectOfType<HpBar>();
         controller = GetComponent<PlayerController>();
+        originalSpeed = baseMoveSpeed;
     }
     public override void Attack()
     {
         if (canShoot)
         {
             base.Attack();
+            soundM.PlaySFX(SFX.laser);
             if ((shoot.partStatus == repairState.isOk))
             {
                 lastProjectile.transform.up = transform.up;
@@ -53,6 +56,7 @@ public class PlayerShip : BaseShip
     public override void ApplyDamage(int damage)
     {
         base.ApplyDamage(damage);
+        FindObjectOfType<CameraSreenShake>().ShakeCamera();
         hpbar.ModifyHP(currentHp * 1f / startHp * 1f);
     }
 
@@ -132,6 +136,20 @@ public class PlayerShip : BaseShip
         foreach (ShipPart part in ShipParts)
         {
             if (part.partStatus == repairState.isBroken)
+            {
+                return false;
+            }
+        }
+        return isOkay;
+    }
+
+
+    public bool PartsFullyOkAndNotRepairing()
+    {
+        bool isOkay = true;
+        foreach (ShipPart part in ShipParts)
+        {
+            if (part.partStatus != repairState.isOk)
             {
                 return false;
             }

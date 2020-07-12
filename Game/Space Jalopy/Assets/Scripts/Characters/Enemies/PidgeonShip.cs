@@ -21,6 +21,7 @@ public class PidgeonShip : ClassicEnemyShip
         base.CheckProjectileTimer();
         if (projectileTimer > projectileTime - chargingTime && !isStopped)
         {
+            anim.SetBool("isAttacking", true);
             anim.SetBool("open", true);
             isStopped = true;
             baseMoveSpeed = 0;

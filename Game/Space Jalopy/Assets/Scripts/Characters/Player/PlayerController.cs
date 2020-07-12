@@ -38,11 +38,13 @@ public class PlayerController : MonoBehaviour
             if (minigame.RemoveCurrentArrow())
             {
                 isRepairing = false;
+                ship.soundM.PlaySFX(SFX.repair_ok);
                 minigame.part.Fix();
             }
         }
         else if (CheckIfOtherArrowsWherePressed(minigame.currentDirections[0].direction.arrowKey))
         {
+            ship.soundM.PlaySFX(SFX.repair_fail);
             ship.ApplyDamage(1);
         }
 

@@ -7,6 +7,7 @@ public class PidgeonProjectile : BaseProjectile
     public override void Init(BaseShip firingShip)
     {
         base.Init(firingShip);
+        FindObjectOfType<EnemySpawner>().UpdateDeadEnemy(firingShip.gameObject);
         Destroy(firingShip.gameObject);
     }
 

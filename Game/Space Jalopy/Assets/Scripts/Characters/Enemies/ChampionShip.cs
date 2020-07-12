@@ -17,6 +17,7 @@ public class ChampionShip : PidgeonShip
         if (projectileTimer > projectileTime && isStopped)
         {
             anim.SetBool("open", false);
+            anim.SetBool("isAttacking", false);
             baseMoveSpeed = usualBaseSpeed;
             isStopped = false;
         }
