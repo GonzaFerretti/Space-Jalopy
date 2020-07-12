@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerShip : BaseShip
 {
     public ShipPart[] ShipParts;
-    public PartShield shield;
     public Rigidbody2D rb;
     public PartSteer steer;
     public PartThruster thruster;
@@ -13,7 +12,6 @@ public class PlayerShip : BaseShip
     public PartRotate monoprop;
     public HpBar hpbar;
 
-    public float projectileSpeed;
 
     public override void Start()
     {
@@ -42,7 +40,7 @@ public class PlayerShip : BaseShip
     public override void ApplyDamage(int damage)
     {
         base.ApplyDamage(damage);
-        hpbar.ModifyHP(currentHp / startHp);
+        hpbar.ModifyHP(currentHp*1f / startHp*1f);
     }
 
     public override void Update()

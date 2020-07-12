@@ -21,6 +21,10 @@ public class BoundaryChecker : MonoBehaviour
         finalPosition.y = Mathf.Clamp(transform.position.y, boundaryInfo.min.y + padding.y, boundaryInfo.max.y - padding.y);
         finalPosition.z = transform.position.z;
         transform.position = finalPosition;
+        if (GetComponent<ClassicEnemyShip>())
+        {
+            GetComponent<ClassicEnemyShip>().hasBeenStopped = true;
+        }
     }
 
     public bool IsInRange(float min, float max, float num)

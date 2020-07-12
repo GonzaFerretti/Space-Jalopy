@@ -13,6 +13,8 @@ public class BaseShip : MonoBehaviour
     public float baseMoveSpeed;
     public SpriteRenderer sren;
 
+    public float basicProjectileSpeed;
+
     public float projectileTimer;
     public float projectileTime;
     public bool canShoot = true;
@@ -43,7 +45,7 @@ public class BaseShip : MonoBehaviour
         sren = GetComponent<SpriteRenderer>();
     }
 
-    void CheckProjectileTimer()
+    public void CheckProjectileTimer()
     {
         if (!canShoot && projectileTimer < projectileTime)
         {

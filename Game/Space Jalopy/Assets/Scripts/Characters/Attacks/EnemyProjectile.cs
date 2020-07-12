@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerProjectile : BaseProjectile
+public class EnemyProjectile : BaseProjectile
 {
+    
 }
