@@ -38,7 +38,7 @@ public class HookProjectile : BaseProjectile
 
     public Vector3 upWithoutZ()
     {
-
+        return Vector3.zero;
     }
 
     public void CheckIfShouldCreateMoreRopes()
