@@ -138,4 +138,18 @@ public class PlayerShip : BaseShip
         }
         return isOkay;
     }
+
+
+    public bool PartsFullyOkAndNotRepairing()
+    {
+        bool isOkay = true;
+        foreach (ShipPart part in ShipParts)
+        {
+            if (part.partStatus != repairState.isOk)
+            {
+                return false;
+            }
+        }
+        return isOkay;
+    }
 }
