@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Wave7
   m_EditorClassIdentifier: 
   shipsToSpawnInOrder:
-  - {fileID: 5124442844494688946, guid: 5fb6696b77b010149824d4cf7f310780, type: 3}
-  - {fileID: 0}
+  - {fileID: 6702670837583672411, guid: 81eeb2722fec193428d79784048c8c26, type: 3}
+  - {fileID: 3963440627220028376, guid: a182d7a9be796834a8f739fc9bbca231, type: 3}
+  - {fileID: 3963440627220028376, guid: a182d7a9be796834a8f739fc9bbca231, type: 3}
+  - {fileID: 1848653665975199870, guid: 9324c3b836eee274e944dc13f134a4b3, type: 3}
   positions:
-  - {x: 1, y: 0}
-  - {x: 2, y: 0}
+  - {x: 0, y: 1.5}
+  - {x: 0.5, y: 2.5}
+  - {x: -0.5, y: 2.5}
+  - {x: 0, y: 4}
