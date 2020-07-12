@@ -17,6 +17,6 @@ MonoBehaviour:
   - {fileID: 5437846369684854375, guid: ccdf26b2c9e1cc44a9aed368e7a81011, type: 3}
   - {fileID: 3963440627220028376, guid: a182d7a9be796834a8f739fc9bbca231, type: 3}
   positions:
-  - {x: -3, y: 3}
-  - {x: 3, y: 2}
-  - {x: 0, y: 4}
+  - {x: -4, y: 3}
+  - {x: 4, y: 2}
+  - {x: -1, y: 4}

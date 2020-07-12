@@ -3,6 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    public GameObject _soundManager;
+
+    private void Start()
+    {
+        _soundManager.GetComponent<soundManager>().PlayBGM(BGM.Menu);
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadScene("Tutorial");

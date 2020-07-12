@@ -26,6 +26,15 @@ public class PlayerShip : BaseShip
         controller.hasDisabledMovement = false;
     }
 
+    public void FixAll()
+    {
+        controller.minigame.Reset();
+        steer.Fix();
+        thruster.Fix();
+        monoprop.Fix();
+        shoot.Fix();
+    }
+
     public override void Start()
     {
         base.Start();
@@ -55,6 +64,10 @@ public class PlayerShip : BaseShip
 
     public override void ApplyDamage(int damage)
     {
+        if (currentHp - damage <= 0)
+        {
+            FixAll();
+        }
         base.ApplyDamage(damage);
         FindObjectOfType<CameraSreenShake>().ShakeCamera();
         hpbar.ModifyHP(currentHp * 1f / startHp * 1f);
@@ -96,7 +109,6 @@ public class PlayerShip : BaseShip
 
     public void Switch(PartBreaker partBreaker)
     {
-        controller.minigame.Reset();
         List<int> indices = new List<int>();
         for (int i = 0; i < ShipParts.Length; i++)
         {
@@ -128,6 +140,8 @@ public class PlayerShip : BaseShip
         {
             part2.Fix();
         }
+
+        controller.minigame.Reset();
     }
 
     public bool PartsFullyOk()

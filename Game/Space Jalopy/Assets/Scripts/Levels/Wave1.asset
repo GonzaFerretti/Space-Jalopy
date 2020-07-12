@@ -15,6 +15,8 @@ MonoBehaviour:
   shipsToSpawnInOrder:
   - {fileID: 5437846369684854375, guid: ccdf26b2c9e1cc44a9aed368e7a81011, type: 3}
   - {fileID: 5437846369684854375, guid: ccdf26b2c9e1cc44a9aed368e7a81011, type: 3}
+  - {fileID: 5437846369684854375, guid: ccdf26b2c9e1cc44a9aed368e7a81011, type: 3}
   positions:
   - {x: 0, y: 3}
-  - {x: 3, y: 4}
+  - {x: 4, y: 4}
+  - {x: -4, y: 2}

@@ -134,8 +134,8 @@ MonoBehaviour:
   isStationary: 0
   isGoingRight: 1
   chargingTime: 1
-  minShootTime: 5
-  maxShootTime: 10
+  minShootTime: 2
+  maxShootTime: 5
   usualBaseSpeed: 0
   isStopped: 0
 --- !u!95 &6702670837583672389

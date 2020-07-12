@@ -130,7 +130,7 @@ MonoBehaviour:
   targetTag: Player
   damage: 4
   ship: {fileID: 0}
-  nudgeSpeed: 0.7
+  nudgeSpeed: 0.8
 --- !u!95 &6429429411963455182
 Animator:
   serializedVersion: 3

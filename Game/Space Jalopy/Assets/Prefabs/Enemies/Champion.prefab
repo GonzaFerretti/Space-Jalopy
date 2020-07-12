@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c463f6475ec714baeca713b2e97b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHp: 0
+  startHp: 15
   currentHp: 0
   anim: {fileID: 0}
   attackSpawnPoint: {fileID: 5124442844304179595}
@@ -125,7 +125,7 @@ MonoBehaviour:
   sren: {fileID: 0}
   explosion: {fileID: 2372980687904938137, guid: c4428e6351311fe468f37aaa23d7ad49,
     type: 3}
-  basicProjectileSpeed: 6
+  basicProjectileSpeed: 7
   projectileTimer: 0
   projectileTime: 5
   canShoot: 0
@@ -134,8 +134,8 @@ MonoBehaviour:
   isStationary: 0
   isGoingRight: 1
   chargingTime: 2
-  minShootTime: 5
-  maxShootTime: 10
+  minShootTime: 2.5
+  maxShootTime: 7.5
   usualBaseSpeed: 0
   isStopped: 0
 --- !u!95 &5124442844494688940
