@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public void Start()
     {
         ship = GetComponent<PlayerShip>();
+        
     }
 
     public void Update()
@@ -30,12 +31,19 @@ public class PlayerController : MonoBehaviour
     {
         if(minigame.currentDirections[0].Check())
         {
+            bool hasFailedPrompt = true;
             if (minigame.RemoveCurrentArrow())
             {
+                hasFailedPrompt = false; 
                 isRepairing = false;
                 minigame.part.Fix();
             }
+            if (!hasFailedPrompt)
+            {
+
+            }
         }
+
     }
 
     public void CheckSteer()

@@ -47,5 +47,6 @@ public class PartRotate : ShipPart
         base.Fix();
         goingRight = false;
         ship.transform.up = Vector2.up;
+        ship.anim.SetBool("isRotating", false);
     }
 }
