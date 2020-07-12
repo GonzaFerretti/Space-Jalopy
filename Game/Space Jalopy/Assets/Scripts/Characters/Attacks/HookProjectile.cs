@@ -77,6 +77,7 @@ public class HookProjectile : BaseProjectile
                 part.GetComponent<SpriteRenderer>().sprite = ropeTenseSprite;
             }
             isHooked = true;
+            ship.ApplyDamage(damage);
             hookOffset = ship.transform.position - transform.position;
             ship.baseMoveSpeed = Mathf.Clamp(ship.baseMoveSpeed - speedPenalty, minSpeedPenalty * ship.originalSpeed, float.MaxValue); 
         }

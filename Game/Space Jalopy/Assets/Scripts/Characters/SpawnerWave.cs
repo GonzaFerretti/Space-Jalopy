@@ -7,4 +7,5 @@ public class SpawnerWave : ScriptableObject
     public GameObject[] shipsToSpawnInOrder;
     public Vector2[] positions;
     public bool shouldHeal;
+    public float timeBeforeStarting;
 }
