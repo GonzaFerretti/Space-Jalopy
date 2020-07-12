@@ -356,6 +356,8 @@ MonoBehaviour:
   remainingEnemies: []
   currentWaveIndex: 0
   extraPadding: {x: 0, y: 0}
+  currentWait: 0
+  currentTime: 0
 --- !u!114 &103336465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1366,6 +1368,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barFill: {fileID: 2124466057}
+  emptyColor: {r: 1, g: 0.021857921, b: 0, a: 1}
+  fullColor: {r: 0, g: 1, b: 0.047619104, a: 1}
 --- !u!1 &1300798540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,7 +2167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.047058824, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2254,22 +2258,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2031926826907214287, guid: cc5b6fb577e36a248a890ea2514e777c,
-        type: 3}
-      propertyPath: startHp
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 2031926826907214286, guid: cc5b6fb577e36a248a890ea2514e777c,
         type: 3}
       propertyPath: minigame
       value: 
       objectReference: {fileID: 1519877577}
-    - target: {fileID: 2031926826907214292, guid: cc5b6fb577e36a248a890ea2514e777c,
-        type: 3}
-      propertyPath: boundaryInfo
-      value: 
-      objectReference: {fileID: 11400000, guid: 0e6ad07b05c5b26489a839a9ec70752f,
-        type: 2}
     - target: {fileID: 2031926826796621343, guid: cc5b6fb577e36a248a890ea2514e777c,
         type: 3}
       propertyPath: uiElement
@@ -2290,5 +2283,16 @@ PrefabInstance:
       propertyPath: uiElement
       value: 
       objectReference: {fileID: 1631212526}
+    - target: {fileID: 2031926826907214287, guid: cc5b6fb577e36a248a890ea2514e777c,
+        type: 3}
+      propertyPath: startHp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031926826907214292, guid: cc5b6fb577e36a248a890ea2514e777c,
+        type: 3}
+      propertyPath: boundaryInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e6ad07b05c5b26489a839a9ec70752f,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc5b6fb577e36a248a890ea2514e777c, type: 3}
