@@ -82,4 +82,9 @@ public class TutorialController : MonoBehaviour
     {
         SceneManager.LoadScene("Scene");
     }
+
+    public void Start()
+    {
+        FindObjectOfType<soundManager>().PlayBGM(BGM.Tutorial);
+    }
 }

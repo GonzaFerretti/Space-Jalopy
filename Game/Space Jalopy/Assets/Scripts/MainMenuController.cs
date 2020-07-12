@@ -7,7 +7,7 @@ public class MainMenuController : MonoBehaviour
 
     private void Start()
     {
-        _soundManager.GetComponent<soundManager>().Play(BGM.Menu);
+        _soundManager.GetComponent<soundManager>().PlayBGM(BGM.Menu);
     }
 
     public void PlayGame()

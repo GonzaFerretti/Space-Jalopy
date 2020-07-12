@@ -12,6 +12,7 @@ public class GameStateController : MonoBehaviour
 
     void Start()
     {
+        FindObjectOfType<soundManager>().PlayBGM(BGM.Stage);
         _spawner = GetComponent<EnemySpawner>();
     }
 
@@ -36,7 +37,7 @@ public class GameStateController : MonoBehaviour
             }
         }
 
-        if (_waitingForRestart)
+        if (_waitingForRestart || _playerWon)
         {
             if (Input.GetKey(KeyCode.R))
             {

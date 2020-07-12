@@ -20,6 +20,7 @@ public enum BGM
 {
     Menu = 0,
     Stage = 1,
+    Tutorial = 2,
 }
 public class soundManager : MonoBehaviour
 {
