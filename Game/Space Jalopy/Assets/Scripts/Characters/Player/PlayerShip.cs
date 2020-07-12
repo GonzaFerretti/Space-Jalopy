@@ -40,10 +40,10 @@ public class PlayerShip : BaseShip
         if (canShoot)
         {
             base.Attack();
+            soundM.PlaySFX(SFX.laser);
             if ((shoot.partStatus == repairState.isOk))
             {
                 lastProjectile.transform.up = transform.up;
-               // FindObjectOfType<soundManager>().Play(SFX.laser);
             }
             else
             {

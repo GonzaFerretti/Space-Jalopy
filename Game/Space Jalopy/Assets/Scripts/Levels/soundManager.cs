@@ -133,7 +133,7 @@ public class soundManager : MonoBehaviour
         return sources[1].clip;
     }
 
-    public void Play(SFX sfx)
+    public void PlaySFX(SFX sfx)
     {
         int availableAsIndex = getAvailableAudioSourceIndex(sfx);
         if (availableAsIndex != -1)
@@ -151,7 +151,7 @@ public class soundManager : MonoBehaviour
             sources[newIndex].Play();
         }
     }
-    public void Play(BGM bgm)
+    public void PlayBGM(BGM bgm)
     {
         if (bgms[(int)bgm] != sources[0].clip)
         {
