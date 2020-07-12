@@ -2258,11 +2258,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2031926826907214287, guid: cc5b6fb577e36a248a890ea2514e777c,
+        type: 3}
+      propertyPath: startHp
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2031926826907214286, guid: cc5b6fb577e36a248a890ea2514e777c,
         type: 3}
       propertyPath: minigame
       value: 
       objectReference: {fileID: 1519877577}
+    - target: {fileID: 2031926826907214292, guid: cc5b6fb577e36a248a890ea2514e777c,
+        type: 3}
+      propertyPath: boundaryInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e6ad07b05c5b26489a839a9ec70752f,
+        type: 2}
+    - target: {fileID: 2031926826907214293, guid: cc5b6fb577e36a248a890ea2514e777c,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2031926826907214293, guid: cc5b6fb577e36a248a890ea2514e777c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.38240552
+      objectReference: {fileID: 0}
     - target: {fileID: 2031926826796621343, guid: cc5b6fb577e36a248a890ea2514e777c,
         type: 3}
       propertyPath: uiElement
@@ -2283,16 +2304,5 @@ PrefabInstance:
       propertyPath: uiElement
       value: 
       objectReference: {fileID: 1631212526}
-    - target: {fileID: 2031926826907214287, guid: cc5b6fb577e36a248a890ea2514e777c,
-        type: 3}
-      propertyPath: startHp
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2031926826907214292, guid: cc5b6fb577e36a248a890ea2514e777c,
-        type: 3}
-      propertyPath: boundaryInfo
-      value: 
-      objectReference: {fileID: 11400000, guid: 0e6ad07b05c5b26489a839a9ec70752f,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc5b6fb577e36a248a890ea2514e777c, type: 3}

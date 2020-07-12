@@ -18,3 +18,5 @@ MonoBehaviour:
   positions:
   - {x: -2, y: 4}
   - {x: 2, y: 2}
+  shouldHeal: 0
+  timeBeforeStarting: 0.5

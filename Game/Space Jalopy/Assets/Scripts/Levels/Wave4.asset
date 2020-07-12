@@ -26,3 +26,5 @@ MonoBehaviour:
   - {x: 0, y: 4}
   - {x: 4, y: 4}
   - {x: -2, y: 4}
+  shouldHeal: 0
+  timeBeforeStarting: 0.5

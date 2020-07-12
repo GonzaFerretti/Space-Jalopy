@@ -23,3 +23,4 @@ MonoBehaviour:
   - {x: 2, y: 3}
   - {x: -2, y: 3}
   shouldHeal: 1
+  timeBeforeStarting: 0.5
