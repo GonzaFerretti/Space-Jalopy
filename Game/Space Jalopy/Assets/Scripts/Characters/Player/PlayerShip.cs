@@ -56,6 +56,7 @@ public class PlayerShip : BaseShip
     public override void ApplyDamage(int damage)
     {
         base.ApplyDamage(damage);
+        FindObjectOfType<CameraSreenShake>().ShakeCamera();
         hpbar.ModifyHP(currentHp * 1f / startHp * 1f);
     }
 
