@@ -8,7 +8,6 @@ public class RepairMinigame : MonoBehaviour
     public ShipPart part;
     public InterfaceColorSettings colors;
     public MinigameDirection[] possibleDirections;
-    public BoundaryInfo info;
     public List<MinigameArrow> currentDirections = new List<MinigameArrow>();
     public GameObject arrowContainer;
     public float outerMargin;
@@ -28,14 +27,7 @@ public class RepairMinigame : MonoBehaviour
     public void Update()
     {
 
-        GetComponent<Transform>().position = ClampedPosition(part.transform.parent.position - Vector3.up * playerHeightMargin);
-    }
-
-    Vector3 ClampedPosition(Vector3 possiblePos)
-    {
-        float x = Mathf.Clamp(possiblePos.x, info.min.x + lastSize.x, info.max.x + lastSize.x);
-        float y = Mathf.Clamp(possiblePos.y, info.min.y + lastSize.y, info.max.y + lastSize.y);
-        return new Vector3(x, y, 0);
+        GetComponent<Transform>().position = part.transform.parent.position - Vector3.up * playerHeightMargin;
     }
 
     void GenerateDirections()
