@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TutorialController : MonoBehaviour
 {
-    private Dictionary<KeyCode, bool> _movementKeys = new Dictionary<KeyCode, bool>()
+    private readonly Dictionary<KeyCode, bool> _movementKeys = new Dictionary<KeyCode, bool>()
     {
         { KeyCode.W, false },
         { KeyCode.A, false },
@@ -20,11 +20,6 @@ public class TutorialController : MonoBehaviour
     public GameObject _playerShip = null;
 
     private int _tutorialStep = 1;
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
