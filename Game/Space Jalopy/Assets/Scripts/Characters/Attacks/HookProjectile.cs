@@ -16,6 +16,7 @@ public class HookProjectile : BaseProjectile
     public float speedPenalty;
     public BaseShip _firingShip;
     public float minSpeedPenalty;
+    public float TimeRemaining;
 
     public override void Init(BaseShip firingShip)
     {
@@ -37,6 +38,12 @@ public class HookProjectile : BaseProjectile
         }
         else
         {
+            TimeRemaining -= Time.deltaTime;
+            if (TimeRemaining <= 0)
+            {
+                ship.baseMoveSpeed = Mathf.Clamp(ship.baseMoveSpeed + speedPenalty, minSpeedPenalty * ship.originalSpeed, ship.originalSpeed);
+                Destroy(gameObject);
+            }
             CheckIfShouldCreateMoreRopes(_firingShip.attackSpawnPoint.transform.position);
             transform.position = ship.transform.position - (Vector3)hookOffset;
             transform.up = (ship.transform.position - new Vector3(_firingShip.attackSpawnPoint.transform.position.x, _firingShip.attackSpawnPoint.transform.position.y,0)).normalized;

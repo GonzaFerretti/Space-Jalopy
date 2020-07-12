@@ -124,4 +124,6 @@ MonoBehaviour:
   rope: []
   isHooked: 0
   speedPenalty: 0.15
+  _firingShip: {fileID: 0}
   minSpeedPenalty: 0.6
+  TimeRemaining: 10
