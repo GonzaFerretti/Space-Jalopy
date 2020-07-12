@@ -11,6 +11,7 @@ public class PlayerShip : BaseShip
     public PartThruster thruster;
     public PartShoot shoot;
     public PartRotate monoprop;
+    public HpBar hpbar;
 
     public float projectileSpeed;
 
@@ -19,6 +20,7 @@ public class PlayerShip : BaseShip
         base.Start();
         ShipParts = GetComponentsInChildren<ShipPart>();
         rb = GetComponent<Rigidbody2D>();
+        hpbar = FindObjectOfType<HpBar>();
     }
     public override void Attack()
     {
@@ -37,15 +39,21 @@ public class PlayerShip : BaseShip
         }
     }
 
+    public override void ApplyDamage(int damage)
+    {
+        base.ApplyDamage(damage);
+        hpbar.ModifyHP(currentHp / startHp);
+    }
+
     public override void Update()
     {
         base.Update();
     }
 
-    public void Move(Vector2 vector)
+    public override void Move(Vector2 vector)
     {
         rb.velocity = Vector2.zero;
-        transform.position += new Vector3(vector.x, vector.y);
+        base.Move(vector);
     }
 
     public void AddForce(Vector2 force)

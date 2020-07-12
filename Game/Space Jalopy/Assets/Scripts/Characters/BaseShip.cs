@@ -17,13 +17,18 @@ public class BaseShip : MonoBehaviour
     public float projectileTime;
     public bool canShoot = true;
 
-    public void ApplyDamage(int damage)
+    public virtual void ApplyDamage(int damage)
     {
         currentHp -= damage;
         if (currentHp<=0)
         {
             Destroy(gameObject);
         }
+    }
+
+    public virtual void Move(Vector2 vector)
+    {
+        transform.position += new Vector3(vector.x, vector.y);
     }
 
     public virtual void Update()
