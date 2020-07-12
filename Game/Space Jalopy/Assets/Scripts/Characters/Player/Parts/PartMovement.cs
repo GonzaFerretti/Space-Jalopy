@@ -10,7 +10,8 @@ public class PartMovement : ShipPart
     public float maxForce;
     public float minTime;
     public float maxTime;
-    public Vector2 direction; 
+    public Vector2 direction;
+    public float disableTime;
 
     public void Update()
     {
@@ -32,6 +33,7 @@ public class PartMovement : ShipPart
 
     public void GlitchMove()
     {
+        ship.SetMovementDisable(disableTime);
         float sign = Mathf.Sign(Random.Range(-1, 1));
         Vector2 glitchForce = Random.Range(minForce, maxForce) * direction * Time.deltaTime;
         ship.AddForce(glitchForce*sign);

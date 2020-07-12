@@ -7,15 +7,19 @@ public class PlayerController : MonoBehaviour
     PlayerShip ship;
     public RepairMinigame minigame;
     public bool isRepairing = false;
+
+    public bool hasDisabledMovement = false;
     public void Start()
     {
         ship = GetComponent<PlayerShip>();
-        
     }
 
     public void Update()
     {
-        CheckMovement();
+        if (!hasDisabledMovement)
+        {
+            CheckMovement();
+        }
         if (!isRepairing)
         {
             CheckShoot();
@@ -31,19 +35,34 @@ public class PlayerController : MonoBehaviour
     {
         if(minigame.currentDirections[0].Check())
         {
-            bool hasFailedPrompt = true;
             if (minigame.RemoveCurrentArrow())
             {
-                hasFailedPrompt = false; 
                 isRepairing = false;
                 minigame.part.Fix();
             }
-            if (!hasFailedPrompt)
-            {
-
-            }
+        }
+        else if (CheckIfOtherArrowsWherePressed(minigame.currentDirections[0].direction.arrowKey))
+        {
+            ship.ApplyDamage(1);
         }
 
+    }
+
+    public bool CheckIfOtherArrowsWherePressed(KeyCode currentlyInView)
+    {
+        bool isPressing = false;
+        foreach (MinigameDirection dir in minigame.possibleDirections)
+        {
+            if (dir.arrowKey != currentlyInView)
+            {
+                if (Input.GetKeyDown(dir.arrowKey))
+                {
+                    isPressing = true;
+                    break;
+                }
+            }
+        }
+        return isPressing;
     }
 
     public void CheckSteer()

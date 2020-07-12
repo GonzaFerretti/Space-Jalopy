@@ -5,15 +5,25 @@ using UnityEngine;
 public class PlayerShip : BaseShip
 {
     public ShipPart[] ShipParts;
-    public PartShield shield;
     public Rigidbody2D rb;
     public PartSteer steer;
     public PartThruster thruster;
     public PartShoot shoot;
     public PartRotate monoprop;
     public HpBar hpbar;
+    public PlayerController controller;
 
-    public float projectileSpeed;
+    public void SetMovementDisable(float time)
+    {
+        controller.hasDisabledMovement = true;
+        StartCoroutine(waitToReEnableMovement(time));
+    }
+
+    IEnumerator waitToReEnableMovement(float timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        controller.hasDisabledMovement = false;
+    }
 
     public override void Start()
     {
@@ -21,6 +31,7 @@ public class PlayerShip : BaseShip
         ShipParts = GetComponentsInChildren<ShipPart>();
         rb = GetComponent<Rigidbody2D>();
         hpbar = FindObjectOfType<HpBar>();
+        controller = GetComponent<PlayerController>();
     }
     public override void Attack()
     {
@@ -42,7 +53,7 @@ public class PlayerShip : BaseShip
     public override void ApplyDamage(int damage)
     {
         base.ApplyDamage(damage);
-        hpbar.ModifyHP(currentHp / startHp);
+        hpbar.ModifyHP(currentHp * 1f / startHp * 1f);
     }
 
     public override void Update()
@@ -59,5 +70,32 @@ public class PlayerShip : BaseShip
     public void AddForce(Vector2 force)
     {
         rb.AddForce(force);
+    }
+
+    public void DisablePartsAttack()
+    {
+        PartBreaker partBreaker = FindObjectOfType<PartBreaker>();
+        if (PartsFullyOk())
+        {
+            partBreaker.DestroyRandomPart();
+            partBreaker.DestroyRandomPart();
+        }
+        else
+        {
+            partBreaker.DestroyRandomPart();
+        }
+    }
+
+    public bool PartsFullyOk()
+    {
+        bool isOkay = true;
+        foreach (ShipPart part in ShipParts)
+        {
+            if (part.partStatus == repairState.isBroken)
+            {
+                return false;
+            }
+        }
+        return isOkay;
     }
 }

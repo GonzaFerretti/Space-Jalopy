@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: bb1b1d2225fdace44b070033b0a6e029
+guid: c31b607859fcdaf49a368bd292965a9a
 TextureImporter:
   fileIDToRecycleName:
-    21300000: thruster_error_complete_2_0
-    21300002: thruster_error_complete_2_1
+    21300000: SpriteSheet-Enemigo-3_0
+    21300002: SpriteSheet-Enemigo-3_1
+    21300004: SpriteSheet-Enemigo-3_2
+    21300006: SpriteSheet-Enemigo-3_3
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -108,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: thruster_error_complete_2_0
+      name: SpriteSheet-Enemigo-3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -122,13 +124,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2c4926b3ce6df346abe37a09decc22f
+      spriteID: a848d922aee5c074f8d91e1e8932fc7f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: thruster_error_complete_2_1
+      name: SpriteSheet-Enemigo-3_1
       rect:
         serializedVersion: 2
         x: 32
@@ -142,7 +144,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e2a5f4f17bd91049bdfb0fa82d84504
+      spriteID: d069f53e0c19b354db51bd05eed51574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet-Enemigo-3_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c8a617b4d92bf418fbac7d2f5e1b97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet-Enemigo-3_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4be18f07d0819634abd93052c8e419e2
       vertices: []
       indices: 
       edges: []
@@ -150,7 +192,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 52008a9a866f1ad4d9bde3413c45b096
+    spriteID: d9c63b053c25814478a9fa3af82a554b
     vertices: []
     indices: 
     edges: []
