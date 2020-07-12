@@ -78,7 +78,7 @@ public class TutorialController : MonoBehaviour
 
                 _tutorial_image_3.SetActive(true);
 
-                Invoke("GoToPlayScene", 3);
+                Invoke("GoToPlayScene", 7.5f);
             }
         }
     }
