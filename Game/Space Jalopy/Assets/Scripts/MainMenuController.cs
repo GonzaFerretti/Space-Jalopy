@@ -5,11 +5,16 @@ public class MainMenuController : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Scene");
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void GoToCredits()
     {
         SceneManager.LoadScene("CreditsScene");
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene");
     }
 }
