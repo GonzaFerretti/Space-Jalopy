@@ -26,6 +26,15 @@ public class PlayerShip : BaseShip
         controller.hasDisabledMovement = false;
     }
 
+    public void FixAll()
+    {
+        controller.minigame.Reset();
+        steer.Fix();
+        thruster.Fix();
+        monoprop.Fix();
+        shoot.Fix();
+    }
+
     public override void Start()
     {
         base.Start();

@@ -58,6 +58,7 @@ public class GameStateController : MonoBehaviour
         if (_spawner.currentWaveIndex >= _spawner.enemyWaves.Length)
         {
             _playerWon = true;
+            _player.GetComponent<PlayerShip>().FixAll();
             _winText.SetActive(true);
 
             foreach (BaseProjectile obj in FindObjectsOfType<BaseProjectile>())
