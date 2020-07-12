@@ -82,5 +82,15 @@ PrefabInstance:
       propertyPath: baseMoveSpeed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5437846369684854394, guid: ccdf26b2c9e1cc44a9aed368e7a81011,
+        type: 3}
+      propertyPath: projectileTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437846369684854394, guid: ccdf26b2c9e1cc44a9aed368e7a81011,
+        type: 3}
+      propertyPath: startHp
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccdf26b2c9e1cc44a9aed368e7a81011, type: 3}
