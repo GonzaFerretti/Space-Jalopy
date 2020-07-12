@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   targetTag: Player
-  damage: 1
+  damage: 2
   ropeWiggly: {fileID: 7009391362091301392, guid: 044361061d19a2e4190f5a2700afe5fc,
     type: 3}
   ropeTense: {fileID: 6187289790353550875, guid: 0d95bee3d7c11884faf1c3cfefbc8f31,

@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
     public List<GameObject> remainingEnemies;
     public int currentWaveIndex = 0;
     public Vector2 extraPadding;
+    public float currentWait;
+    public float currentTime;
 
     public void Update()
     {
@@ -16,13 +18,22 @@ public class EnemySpawner : MonoBehaviour
         {
             if (currentWaveIndex < enemyWaves.Length)
             {
-                SpawnWave();
+                currentWait = enemyWaves[currentWaveIndex].timeBeforeStarting;
+                if (currentTime < currentWait)
+                {
+                    currentTime += Time.deltaTime;
+                }
+                else
+                {
+                    currentTime = 0;
+                    SpawnWave();
+                    currentWaveIndex++;
+                }
             }
             else
             {
                 GetComponent<GameStateController>().PlayerWon();
             }
-            currentWaveIndex++;
         }
     }
 
