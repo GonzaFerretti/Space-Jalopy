@@ -22,8 +22,12 @@ public class BaseShip : MonoBehaviour
     public virtual void ApplyDamage(int damage)
     {
         currentHp -= damage;
-        if (currentHp<=0)
+        if (currentHp <= 0)
         {
+            if (!(this is PlayerShip))
+            {
+                FindObjectOfType<EnemySpawner>().UpdateDeadEnemy(gameObject);
+            }
             Destroy(gameObject);
         }
     }

@@ -14,14 +14,12 @@ public class BgHandler : MonoBehaviour
     private void Start()
     {
         currentBg = bg1;
-        Debug.Log(bg1.GetComponent<SpriteRenderer>().bounds.size);
     }
     // Update is called once per frame
     void Update()
     {
         if (currentBg.transform.position.y < -bgHeight)
         {
-            Debug.Log("hola");
             if (currentBg == bg1)
             {
                 bg1.transform.position = Vector2.up * bgHeight;
