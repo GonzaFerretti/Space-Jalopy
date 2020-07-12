@@ -55,7 +55,7 @@ public class GameStateController : MonoBehaviour
 
     public void PlayerWon()
     {
-        if (_spawner.currentWaveIndex > _spawner.enemyWaves.Length)
+        if (_spawner.currentWaveIndex >= _spawner.enemyWaves.Length)
         {
             _playerWon = true;
             _player.GetComponent<PlayerShip>().FixAll();
