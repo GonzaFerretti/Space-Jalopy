@@ -45,7 +45,7 @@ public class BaseShip : MonoBehaviour
         sren = GetComponent<SpriteRenderer>();
     }
 
-    public void CheckProjectileTimer()
+    public virtual void CheckProjectileTimer()
     {
         if (!canShoot && projectileTimer < projectileTime)
         {

@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     public void Start()
     {
         ship = GetComponent<PlayerShip>();
-        
     }
 
     public void Update()

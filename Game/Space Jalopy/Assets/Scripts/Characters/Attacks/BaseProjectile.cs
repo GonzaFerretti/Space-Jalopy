@@ -9,7 +9,7 @@ public class BaseProjectile : MonoBehaviour
     public int damage;
 
 
-    public void Init(BaseShip firingShip)
+    public virtual void Init(BaseShip firingShip)
     {
         speed = firingShip.basicProjectileSpeed;
     }
@@ -29,12 +29,10 @@ public class BaseProjectile : MonoBehaviour
         Move();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("toque algo");
         if (collision.tag == targetTag)
         {
-            Debug.Log("impacté a " + collision.name);
             collision.GetComponent<BaseShip>().ApplyDamage(damage);
             Destroy(gameObject);
         }

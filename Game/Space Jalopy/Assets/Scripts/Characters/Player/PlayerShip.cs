@@ -40,7 +40,7 @@ public class PlayerShip : BaseShip
     public override void ApplyDamage(int damage)
     {
         base.ApplyDamage(damage);
-        hpbar.ModifyHP(currentHp*1f / startHp*1f);
+        hpbar.ModifyHP(currentHp * 1f / startHp * 1f);
     }
 
     public override void Update()
@@ -57,5 +57,32 @@ public class PlayerShip : BaseShip
     public void AddForce(Vector2 force)
     {
         rb.AddForce(force);
+    }
+
+    public void DisablePartsAttack()
+    {
+        PartBreaker partBreaker = FindObjectOfType<PartBreaker>();
+        if (PartsFullyOk())
+        {
+            partBreaker.DestroyRandomPart();
+            partBreaker.DestroyRandomPart();
+        }
+        else
+        {
+            partBreaker.DestroyRandomPart();
+        }
+    }
+
+    public bool PartsFullyOk()
+    {
+        bool isOkay = true;
+        foreach (ShipPart part in ShipParts)
+        {
+            if (part.partStatus == repairState.isBroken)
+            {
+                return false;
+            }
+        }
+        return isOkay;
     }
 }
