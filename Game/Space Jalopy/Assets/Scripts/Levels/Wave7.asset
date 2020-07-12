@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Wave7
   m_EditorClassIdentifier: 
   shipsToSpawnInOrder:
+  - {fileID: 5124442844494688946, guid: 5fb6696b77b010149824d4cf7f310780, type: 3}
   - {fileID: 0}
   positions:
-  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  - {x: 2, y: 0}
