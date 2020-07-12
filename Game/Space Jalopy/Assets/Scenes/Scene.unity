@@ -297,7 +297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &103336462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103336461}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c8360686eaa611498c6f95167b8a598, type: 3}
   m_Name: 
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1064864873}
   _gameOverText: {fileID: 1522404430}
-  _winText: {fileID: 0}
+  _winText: {fileID: 351599552}
 --- !u!1 &259475435
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +509,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -252, y: 119}
+  m_AnchoredPosition: {x: -249, y: 502}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &351599554
@@ -532,7 +532,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: You did it! Now it's time to step down and enjoy the good life $.$
+  m_text: 'You did it! Now it''s time to step down and enjoy the good life $.$
+
+
+    Press R to go to the main menu'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b79075f984c4b4c4c95333ee5c726ffe, type: 2}
   m_sharedMaterial: {fileID: 21678963015638978, guid: b79075f984c4b4c4c95333ee5c726ffe,
@@ -561,7 +564,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 72
+  m_fontSize: 58.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -602,12 +605,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -497.41937, w: -185.31306}
   m_textInfo:
     textComponent: {fileID: 351599554}
-    characterCount: 66
+    characterCount: 98
     spriteCount: 0
-    spaceCount: 14
-    wordCount: 14
+    spaceCount: 23
+    wordCount: 22
     linkCount: 0
-    lineCount: 3
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -1927,7 +1930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -252, y: 119}
+  m_AnchoredPosition: {x: -252, y: 562}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1522404432

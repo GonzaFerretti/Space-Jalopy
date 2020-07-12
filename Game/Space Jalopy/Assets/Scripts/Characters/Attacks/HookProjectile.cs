@@ -33,8 +33,8 @@ public class HookProjectile : BaseProjectile
     {
         if (!isHooked)
         { 
-        base.Move();
-        CheckIfShouldCreateMoreRopes(startPosition);
+            base.Move();
+            CheckIfShouldCreateMoreRopes(startPosition);
         }
         else
         {
@@ -46,7 +46,7 @@ public class HookProjectile : BaseProjectile
             }
             CheckIfShouldCreateMoreRopes(_firingShip.attackSpawnPoint.transform.position);
             transform.position = ship.transform.position - (Vector3)hookOffset;
-            transform.up = (ship.transform.position - new Vector3(_firingShip.attackSpawnPoint.transform.position.x, _firingShip.attackSpawnPoint.transform.position.y,0)).normalized;
+            transform.up = (ship.transform.position - new Vector3(_firingShip.attackSpawnPoint.transform.position.x, _firingShip.attackSpawnPoint.transform.position.y, 0)).normalized;
         }
     }
 

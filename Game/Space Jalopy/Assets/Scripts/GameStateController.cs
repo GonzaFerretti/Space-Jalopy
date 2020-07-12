@@ -7,11 +7,11 @@ public class GameStateController : MonoBehaviour
     private EnemySpawner _spawner = null;
     public GameObject _gameOverText = null;
     public GameObject _winText = null;
+    private bool _playerWon = false;
     private bool _waitingForRestart = false;
 
     void Start()
     {
-        Time.timeScale = 1;
         _spawner = GetComponent<EnemySpawner>();
     }
 
@@ -19,20 +19,58 @@ public class GameStateController : MonoBehaviour
     {
         if(_player == null)
         {
-            Time.timeScale = 0;
             _gameOverText.SetActive(true);
             _waitingForRestart = true;
+
+            foreach (BaseProjectile obj in FindObjectsOfType<BaseProjectile>())
+            {
+                Destroy(obj.gameObject);
+            }
+
+            foreach (BaseShip obj in FindObjectsOfType<BaseShip>())
+            {
+                if (!(obj is PlayerShip))
+                {
+                    Destroy(obj.gameObject);
+                }
+            }
         }
 
-        if(_spawner.currentWaveIndex > _spawner.enemyWaves.Length)
+        if (_waitingForRestart)
         {
-            Time.timeScale = 0;
+            if (Input.GetKey(KeyCode.R))
+            {
+                if (_playerWon)
+                {
+                    SceneManager.LoadScene("MainMenuScene");
+                }
+                else
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                }
+            }
+        }
+    }
+
+    public void PlayerWon()
+    {
+        if (_spawner.currentWaveIndex >= _spawner.enemyWaves.Length)
+        {
+            _playerWon = true;
             _winText.SetActive(true);
-        }
 
-        if (_waitingForRestart && Input.GetKey(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            foreach (BaseProjectile obj in FindObjectsOfType<BaseProjectile>())
+            {
+                Destroy(obj.gameObject);
+            }
+
+            foreach (BaseShip obj in FindObjectsOfType<BaseShip>())
+            {
+                if (!(obj is PlayerShip))
+                {
+                    Destroy(obj.gameObject);
+                }
+            }
         }
     }
 }

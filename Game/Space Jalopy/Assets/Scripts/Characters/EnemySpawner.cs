@@ -12,10 +12,18 @@ public class EnemySpawner : MonoBehaviour
 
     public void Update()
     {
-        if (remainingEnemies.Count == 0 && currentWaveIndex <= enemyWaves.Length)
+        if (remainingEnemies.Count == 0)
         {
-            SpawnWave();
             currentWaveIndex++;
+            
+            if(currentWaveIndex < enemyWaves.Length)
+            {
+                SpawnWave();
+            }
+            else
+            {
+                GetComponent<GameStateController>().PlayerWon();
+            }
         }
     }
 
